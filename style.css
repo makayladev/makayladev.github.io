@@ -35,6 +35,10 @@ a {
   text-decoration: none;
 }
 
+img {
+  max-width: 100%;
+}
+
 
 /* NAVIGATION */
 
@@ -124,12 +128,15 @@ nav a:hover {
   display: inline-block;
   padding: 14px 24px;
   border-radius: 100px;
+
   font-size: 14px;
   font-weight: 500;
+
   transition:
     transform 0.2s ease,
     background 0.2s ease,
-    color 0.2s ease;
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .primary {
@@ -147,6 +154,7 @@ nav a:hover {
 
 .secondary:hover {
   background: white;
+  border-color: #c9c8c2;
 }
 
 
@@ -213,7 +221,7 @@ nav a:hover {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 25px;
 }
 
@@ -234,17 +242,23 @@ nav a:hover {
 }
 
 .project-preview {
-  height: 270px;
+  height: 290px;
   background: var(--accent-light);
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 13px;
-  letter-spacing: 3px;
-  font-weight: 600;
-  color: var(--accent);
+  overflow: hidden;
+}
+
+.project-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  padding: 14px;
+  background: #f8f8f8;
 }
 
 .project-content {
@@ -260,7 +274,8 @@ nav a:hover {
 .project-content h3 {
   font-family: "Manrope", sans-serif;
   font-size: 28px;
-  margin-bottom: 12px;
+  line-height: 1.2;
+  margin-bottom: 14px;
 }
 
 .project-content > p {
@@ -278,7 +293,9 @@ nav a:hover {
 .tags span {
   font-size: 12px;
   padding: 7px 12px;
+
   background: var(--background);
+  border: 1px solid #ecebe6;
   border-radius: 100px;
 }
 
@@ -286,6 +303,7 @@ nav a:hover {
   display: inline-block;
   font-size: 14px;
   font-weight: 600;
+
   transition: color 0.2s ease;
 }
 
@@ -296,9 +314,17 @@ nav a:hover {
 .view-more {
   display: inline-block;
   margin-top: 45px;
+
   font-weight: 500;
+
   border-bottom: 1px solid var(--text);
   padding-bottom: 3px;
+
+  transition: color 0.2s ease;
+}
+
+.view-more:hover {
+  color: var(--accent);
 }
 
 
@@ -370,6 +396,7 @@ nav a:hover {
 .timeline-item h3 {
   font-family: "Manrope", sans-serif;
   font-size: 20px;
+  line-height: 1.35;
   margin-bottom: 8px;
 }
 
@@ -412,6 +439,7 @@ nav a:hover {
 .contact-links a {
   border-bottom: 1px solid var(--text);
   padding-bottom: 3px;
+
   transition: color 0.2s ease;
 }
 
@@ -510,7 +538,7 @@ footer {
   }
 
   .project-preview {
-    height: 220px;
+    height: 240px;
   }
 
   .skills-columns {
@@ -567,6 +595,10 @@ footer {
 
   .project-content {
     padding: 25px;
+  }
+
+  .project-preview {
+    height: 220px;
   }
 
   .contact h2 {
